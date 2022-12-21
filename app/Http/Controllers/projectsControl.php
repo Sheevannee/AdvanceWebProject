@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\projects;
-use App\Models\users;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -18,8 +18,10 @@ class projectsControl extends Controller
 
     public function manageProjects()
     {
-        $data=projects::paginate(3);
-        return view('coordinator.coordinatormanageprojectpage',['data'=>$data]);
+        $data=projects::paginate(4);
+        $users = User::all();
+
+        return view('coordinator.coordinatormanageprojectpage',['data'=>$data, 'users'=>$users]);
     }
 
     public function delete($id)
@@ -34,7 +36,16 @@ class projectsControl extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $req)
+
+    public function create()
+    {
+        $users = User::all();
+        $projects = new projects;
+        // return view('coordinator.coordinatoraddprojects', compact(['users','projects']));
+        return view('coordinator.coordinatoraddprojects', ['projects'=>$projects, 'users'=>$users]);
+    }
+
+    public function store(Request $req)
     {
         $data=new projects;
  
@@ -48,7 +59,6 @@ class projectsControl extends Controller
         $data->progress=$req->progress;
         $data->status=$req->status;
         $data->supervisors=$req->supervisors;
-        $data->supervisors_id=$req->supervisors_id;
         $data->examiner_one=$req->examiner_one;
         $data->examiner_two=$req->examiner_two;
 
@@ -59,8 +69,16 @@ class projectsControl extends Controller
 
     public function supervisorManage()
     {
-        $data=projects::paginate(3);
-        return view('supervisor.supervisormanageproject',['data'=>$data]);
+        $users = User::all();
+        $data=projects::paginate(4);
+        return view('supervisor.supervisormanageproject',['data'=>$data,'users'=>$users]);
+    }
+
+    public function supervisorView()
+    {
+        $users = User::all();
+        $data=projects::paginate(4);
+        return view('supervisor.supervisorviewproject',['data'=>$data,'users'=>$users]);
     }
 
     function showProject($id){ 
@@ -88,13 +106,12 @@ class projectsControl extends Controller
         $data->duration=$req->duration;
         $data->progress=$req->progress;
         $data->status=$req->status;
-        $data->supervisors=$req->supervisors;
-        $data->supervisors_id=$req->supervisors_id;
-        $data->examiner_one=$req->examiner_one;
-        $data->examiner_two=$req->examiner_two;
+        // $data->supervisors=$req->supervisors;
+        // $data->examiner_one=$req->examiner_one;
+        // $data->examiner_two=$req->examiner_two;
 
         $data->save();
-        return redirect('/supervisormanage');
+        return redirect('/supervisorupdate');
     }
 
     /**
@@ -103,10 +120,7 @@ class projectsControl extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    
 
     /**
      * Display the specified resource.
@@ -114,10 +128,7 @@ class projectsControl extends Controller
      * @param  \App\Models\projects  $projects
      * @return \Illuminate\Http\Response
      */
-    public function show(projects $projects)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -125,10 +136,7 @@ class projectsControl extends Controller
      * @param  \App\Models\projects  $projects
      * @return \Illuminate\Http\Response
      */
-    public function edit(projects $projects)
-    {
-        //
-    }
+    
 
     /**
      * Update the specified resource in storage.
@@ -145,8 +153,5 @@ class projectsControl extends Controller
      * @param  \App\Models\projects  $projects
      * @return \Illuminate\Http\Response
      */
-    public function destroy(projects $projects)
-    {
-        //
-    }
+    
 }
