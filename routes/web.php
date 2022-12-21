@@ -25,19 +25,20 @@ Route::get('/manageprojects',[projectsControl::class,"manageProjects"]);
 
 Route::get("/delete/{id}",[projectsControl::class,"delete"]);
 
+// Route::get('/form', function () {
+//     return view('coordinator.coordinatoraddprojects');
+// });
 
-Route::get('/form', function () {
-    return view('coordinator.coordinatoraddprojects');
-});
+Route::get('/form',[projectsControl::class, 'create']);
 
-Route::POST('/createproject',[projectsControl::class,"create"]);
-
-
+Route::POST('/createproject',[projectsControl::class,"store"]);
 
 
 Route::get("/supervisor",[homeControl::class,"supervisorHome"]);
 
-Route::get('/supervisormanage',[projectsControl::class,"supervisorManage"]);
+Route::get('/supervisorview',[projectsControl::class,"supervisorView"]);
+
+Route::get('/supervisorupdate',[projectsControl::class,"supervisorManage"]);
 
 Route::get("/update/{id}",[projectsControl::class,"showProject"]); 
 
