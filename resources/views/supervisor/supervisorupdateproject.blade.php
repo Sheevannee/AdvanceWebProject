@@ -48,7 +48,7 @@
                             
         <b>Enter Student's Name : </b><input type="text" name="name" value="{{$disp['name']}}" readonly><br/><br/>
 
-        <b>Project Type : </b><input type="text" name="name" value="{{$disp['proj_type']}}" readonly><br/><br/>
+        <b>Project Type : </b><input type="text" name="proj_type" value="{{$disp['proj_type']}}" readonly><br/><br/>
                                                       
         <b>Enter Project Title : </b><input type="text" name="proj_title" value="{{$disp['proj_title']}}" readonly><br/><br/>
                             
@@ -60,28 +60,26 @@
                             
         <label for="progress"><b>Enter Project Progress : </b></label>
         <select id="progress" name="progress"> 
-          <!-- <option>-Select Option-</option> -->
-          <option value="Miletsone 1">Miletsone 1</option>
-          <option value="Miletsone 2">Miletsone 2</option>
-          <option value="Final Report">Final Report</option>
+          <option>-Select Option-</option>
+          <option id="1" value="Milestone 1">Milestone 1</option>
+          <option id="2" value="Milestone 2">Milestone 2</option>
+          <option id="3" value="Final Report">Final Report</option>
         </select><br/><br/>
 
         <label for="status"><b>Enter Project Status : </b></label>
         <select id="status" name="status">
           <option>-Select Option-</option>
-          <option value="On Track">On Track</option>
-          <option value="Delayed">Delayed</option>
-          <option value="Extended">Extended</option>
-          <option value="Completed">Completed</option>
+          <option id="1" value="On Track">On Track</option>
+          <option id="2" value="Delayed">Delayed</option>
+          <option id="3" value="Extended">Extended</option>
+          <option id="4" value="Completed">Completed</option>
         </select><br/><br/>
                             
-        <b>Enter Supervisor's Name : </b><input type="text" name="supervisors" value="{{$disp['supervisors']}}" readonly><br/><br/>
-        
-        <b>Enter Supervisor's ID : </b><input type="text" name="supervisors_id" value="{{$disp['supervisors_id']}}" readonly><br/><br/>
-        
+        <!-- <b>Enter Supervisor's Name : </b><input type="text" name="supervisors" value="{{$disp['supervisors']}}" readonly><br/><br/>
+              
         <b>Enter Examiner 1 Name : </b><input type="text" name="examiner_one" value="{{$disp['examiner_one']}}" readonly><br/><br/>
         
-        <b>Enter Examiner 2 Name : </b><input type="text" name="examiner_two" value="{{$disp['examiner_two']}}" readonly><br/><br/>
+        <b>Enter Examiner 2 Name : </b><input type="text" name="examiner_two" value="{{$disp['examiner_two']}}" readonly><br/><br/> -->
                             
         <button class="button button1" type="submit">Update Project Details</button>           
         <button class="button button1" type="reset">Reset Form</button>  
