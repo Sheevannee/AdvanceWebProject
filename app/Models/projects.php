@@ -13,4 +13,20 @@ class projects extends Model
     protected $keyType = 'string';
 
     public $timestamps=false;
+
+    protected $fillable = [
+        'id',
+        'name',
+        'proj_type',
+        'proj_title',
+        'sdate',
+        'edate',
+        'duration',
+        'progress',
+        'status',
+        'supervisors',
+        'examiner_one',
+        'examiner_two',
+    ];
+
 }
