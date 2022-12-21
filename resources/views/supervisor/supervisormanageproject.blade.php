@@ -34,7 +34,7 @@
         <section class="section">
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="card-stats-title"><h3 style="color:MidnightBlue;">Project Details</h3>
+                <div class="card-stats-title"><h5 style="color:MidnightBlue;">Update Project Details</h5>
                     <div style="position:relative; top:20px;">
                         <table bgcolor="#cfdbff" border-collapse="collapse">
                             <tr align="center">
@@ -48,7 +48,6 @@
                                 <th style="padding: 10px;">Project Progress</th>
                                 <th style="padding: 10px;">Project Status</th>
                                 <th style="padding: 10px;">Supervisor</th>
-                                <th style="padding: 10px;">Supervisor ID</th>
                                 <th style="padding: 10px;">Examiner 1</th>
                                 <th style="padding: 10px;">Examiner 2</th>
                                 <th style="padding: 10px;">Action</th>
@@ -64,11 +63,30 @@
                                     <td style="padding: 10px">{{$d->duration}}</td>
                                     <td style="padding: 10px">{{$d->progress}}</td>
                                     <td style="padding: 10px">{{$d->status}}</td>
-                                    <td style="padding: 10px">{{$d->supervisors}}</td>
-                                    <td style="padding: 10px">{{$d->supervisors_id}}</td>
-                                    <td style="padding: 10px">{{$d->examiner_one}}</td>
-                                    <td style="padding: 10px">{{$d->examiner_two}}</td>
-                                    <td style="padding: 10px"><a href="{{url('update',$d->id)}}">Update</a></td>
+                                    <td style="padding: 10px">
+                                      @foreach($users as $user)
+                                        @if($user->id == $d->supervisors)
+                                          {{$user->name}}
+                                        @endif
+                                      @endforeach
+                                    </td>
+                                    <td style="padding: 10px">
+                                      @foreach($users as $user)
+                                        @if($user->id == $d->examiner_one)
+                                          {{$user->name}}
+                                        @endif
+                                      @endforeach
+                                    </td>
+                                    <td style="padding: 10px">
+                                      @foreach($users as $user)
+                                        @if($user->id == $d->examiner_two)
+                                          {{$user->name}}
+                                        @endif
+                                      @endforeach
+                                    </td>
+                                    @if($d->supervisors == Auth::id())
+                                      <td style="padding: 10px"><a href="{{url('update',$d->id)}}">Update</a></td>
+                                    @endif
                                 </tr>
                             @endforeach
                         </table>

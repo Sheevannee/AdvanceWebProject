@@ -15,7 +15,7 @@
         <section class="section">
           <div class="row">
             <div class="col-lg-7 col-md-6 col-sm-14">
-                <div class="card-stats-title"><h5 style="color:RoyalBlue;">WELCOME TO THE COORDINATOR PANEL PAGE</h5>
+                <div class="card-stats-title"><h5 style="color:RoyalBlue;">COORDINATOR FINAL YEAR PROJECT MANAGEMENT</h5>
                      </div>
                 </div>
             </div>

@@ -48,7 +48,6 @@
                                 <th style="padding: 10px;">Project Progress</th>
                                 <th style="padding: 10px;">Project Status</th>
                                 <th style="padding: 10px;">Supervisor</th>
-                                <th style="padding: 10px;">Supervisor ID</th>
                                 <th style="padding: 10px;">Examiner 1</th>
                                 <th style="padding: 10px;">Examiner 2</th>
                                 <th style="padding: 10px;">Action</th>
@@ -64,10 +63,27 @@
                                     <td style="padding: 10px">{{$d->duration}}</td>
                                     <td style="padding: 10px">{{$d->progress}}</td>
                                     <td style="padding: 10px">{{$d->status}}</td>
-                                    <td style="padding: 10px">{{$d->supervisors}}</td>
-                                    <td style="padding: 10px">{{$d->supervisors_id}}</td>
-                                    <td style="padding: 10px">{{$d->examiner_one}}</td>
-                                    <td style="padding: 10px">{{$d->examiner_two}}</td>
+                                    <td style="padding: 10px">
+                                      @foreach($users as $user)
+                                        @if($user->id == $d->supervisors)
+                                          {{$user->name}}
+                                        @endif
+                                      @endforeach
+                                    </td>
+                                    <td style="padding: 10px">
+                                      @foreach($users as $user)
+                                        @if($user->id == $d->examiner_one)
+                                          {{$user->name}}
+                                        @endif
+                                      @endforeach
+                                    </td>
+                                    <td style="padding: 10px">
+                                      @foreach($users as $user)
+                                        @if($user->id == $d->examiner_two)
+                                          {{$user->name}}
+                                        @endif
+                                      @endforeach
+                                    </td>
                                     <td style="padding: 10px"><a href="{{url('delete',$d->id)}}">Delete</a></td>
                                 </tr>
                             @endforeach
