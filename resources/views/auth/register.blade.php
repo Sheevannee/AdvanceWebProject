@@ -31,10 +31,10 @@
 
             <div class="mt-4">
                 <x-jet-label for="1" />
-                <x-jet-input type="radio" id="1" name="typeuser" value="1" required />
+                <x-jet-input type="radio" id="1" name="usertype" value="1" required />
                 Coordinator
                 <x-jet-label for="0" />
-                <x-jet-input type="radio" id="0" name="typeuser" value="0" required />
+                <x-jet-input type="radio" id="0" name="usertype" value="0" required />
                 Supervisor
             </div>
 
