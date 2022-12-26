@@ -18,7 +18,7 @@ class projectsControl extends Controller
 
     public function manageProjects()
     {
-        $data=projects::paginate(4);
+        $data=projects::paginate(3);
         $users = User::all();
 
         return view('coordinator.coordinatormanageprojectpage',['data'=>$data, 'users'=>$users]);
@@ -70,19 +70,19 @@ class projectsControl extends Controller
     public function supervisorManage()
     {
         $users = User::all();
-        $data=projects::paginate(4);
+        $data = projects::paginate(3);
         return view('supervisor.supervisormanageproject',['data'=>$data,'users'=>$users]);
     }
 
     public function supervisorView()
     {
         $users = User::all();
-        $data=projects::paginate(4);
+        $data = projects::paginate(3);
         return view('supervisor.supervisorviewproject',['data'=>$data,'users'=>$users]);
     }
 
     function showProject($id){ 
-        $data=projects::find($id); 
+        $data = projects::find($id); 
         return view('supervisor.supervisorupdateproject',['disp'=>$data]);
     }
 
