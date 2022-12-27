@@ -25,10 +25,6 @@ Route::get('/manageprojects',[projectsControl::class,"manageProjects"]);
 
 Route::get("/delete/{id}",[projectsControl::class,"delete"]);
 
-// Route::get('/form', function () {
-//     return view('coordinator.coordinatoraddprojects');
-// });
-
 Route::get('/form',[projectsControl::class, 'create']);
 
 Route::POST('/createproject',[projectsControl::class,"store"]);
