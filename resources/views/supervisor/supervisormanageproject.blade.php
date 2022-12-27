@@ -38,7 +38,7 @@
                     <div style="position:relative; top:20px;">
                         <table bgcolor="#cfdbff" border-collapse="collapse">
                             <tr align="center">
-                                <!-- <th style="padding: 10px;">Student ID</th> -->
+                                <th style="padding: 10px;">Student ID</th>
                                 <th style="padding: 10px;">Student Name</th>
                                 <th style="padding: 10px;">Project Type</th>
                                 <th style="padding: 10px;">Project Title</th>
@@ -54,7 +54,7 @@
                             </tr>
                             @foreach($data as $d)
                                 <tr align="center">
-                                    <!-- <td style="padding: 10px">{{$d->id}}</td> -->
+                                    <td style="padding: 10px">{{$d->id}}</td>
                                     <td style="padding: 10px">{{$d->name}}</td>
                                     <td style="padding: 10px">{{$d->proj_type}}</td>
                                     <td style="padding: 10px">{{$d->proj_title}}</td>
